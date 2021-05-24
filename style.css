@@ -1,0 +1,242 @@
+/* Genral rules */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* variables */
+:root{
+    
+/* Primary */
+--Gradient: linear-gradient( to right, hsl(6, 100%, 80%),  hsl(335, 100%, 65%)) ;
+
+/* Neutral */
+--Pale-Blue: hsl(243, 100%, 93%);
+--Grayish-Blue: hsl(229, 7%, 55%);
+--Dark-Blue: hsl(228, 56%, 26%);
+--Very-Dark-Blue: hsl(229, 57%, 11%);
+
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--Very-Dark-Blue);
+    background-image: url(./images/bg-desktop.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 100% 130%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container{
+    margin: 0 auto;
+    width: 1000px;
+    padding: 1rem;
+}
+
+
+/* making the tow cards inline */
+.flex{
+    display: flex;
+    align-items: flex-end;
+    gap: 2rem;
+    height: 200px;
+}
+/* changing the flex direction for phone view */
+
+
+/* styling the fylo section */
+.fylo{
+    flex: 1;
+    background-color: var(--Dark-Blue);
+    height: 100%;
+    border-radius: 10px 90px 10px 10px;
+    padding: 2rem;
+}
+
+.logo{
+    margin-bottom: 1rem;
+}
+
+.icons{
+    display: flex;
+}
+
+.icon{
+    padding: .7rem;
+    background-color: var(--Very-Dark-Blue);
+    border-radius: 8px;
+    object-fit: contain;
+    margin-right: 1rem;
+}
+
+
+/* styling the storage section */
+.storage{
+    flex: 2;
+    height: 80%;
+    background-color: var(--Dark-Blue);
+    position: relative;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.storage >p{
+    color: var(--Pale-Blue);
+    margin-bottom: 1rem;
+}
+
+.storage span{
+    color: white;
+    font-weight: 500;
+}
+
+/* styling the tooltip */
+.tool-tip{
+    background-color: white;
+    position: absolute;
+    top: -30%;
+    right: 10%;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 8px 8px 0 8px;
+}
+
+.tool-tip::after{
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    border-width: 10px;
+    border-style: solid;
+    border-color: white white transparent transparent;
+}
+/* changing the tool-tip position for phone view */
+.tool-tip h1{
+    color: var(--Very-Dark-Blue);
+}
+.tool-tip h5{
+    color: var(--Grayish-Blue);
+    text-transform: uppercase;
+    margin-left: .5rem;
+}
+
+
+/* styling the percentage bar */
+.percentage{
+    width: 100%;
+    height: 15px;
+    border-radius: 10px;
+    background-color: var(--Very-Dark-Blue);
+    position: relative;
+    margin-bottom: .5rem;
+}
+
+.percentage .full{
+    width: 70%;
+    height: 100%;
+    border-radius: 10px;
+    background-image: var(--Gradient);
+    position: relative;
+    
+}
+
+.full::after{
+    content: "";
+    width: 15px;
+    height: 100%;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.storage-level{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* styling the attribution */
+.attribution { 
+    font-size: 11px;
+    text-align: center;
+    position: absolute;
+    bottom: .5rem;
+}
+.attribution a { 
+    color: hsl(0, 1%, 71%); 
+}
+
+/* Media Querries */
+/* reducing the .container width for small screen */
+@media screen and (max-width:1200px){
+    body{
+        background-size: cover;
+    }
+   
+}
+@media screen and (max-width:1000px){
+
+    .container{
+        width: 800px;
+    }
+}
+
+@media screen and (max-width:800px){
+    .container{
+        width: 60%;
+    }
+    .flex{
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+    }
+    .fylo{
+        width: 100%;
+    }
+    .storage{
+        width: 100%;
+        height: 100%;
+    }
+
+    .tool-tip{
+        background-color: white;
+        position: absolute;
+        top: 80%;
+        right: 35%;
+
+        border-radius: 8px;
+    }
+    .tool-tip::after{
+        border: none;
+    }
+}
+
+@media screen and (max-width:600px){
+    .container{
+        width: 80%;
+    }
+}
+@media screen and (max-width:500px){
+    .container{
+        width: 100%;
+    }
+}
+
+ /* changing the background for phone view */
+ @media screen and (max-width:430px){
+    body{
+        background-image: url(./images/bg-mobile.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
